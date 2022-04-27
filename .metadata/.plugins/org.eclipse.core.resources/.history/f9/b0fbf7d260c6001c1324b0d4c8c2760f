@@ -1,0 +1,4 @@
+package com.project.pancake.repositories;
+
+public interface PancakeRepository extends JpaRepository<, Long> {
+}
