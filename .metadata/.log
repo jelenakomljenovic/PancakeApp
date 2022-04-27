@@ -144,3 +144,48 @@ java.lang.UnsupportedOperationException: No language server has registered to ha
 	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
 	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui 2 2 2022-04-27 21:22:02.666
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:00.034
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:00.036
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@65a96307[org.springframework.tooling.boot.ls:1.32.0.202203131529(id=569)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:00.038
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:15.664
+!MESSAGE Boot LS startup time from start to initialized: 15623ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.099
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.DemCRikGisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.101
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.102
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.104
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.105
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.106
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.DemCRikG => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.172
+!MESSAGE classpath=66 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.186
+!MESSAGE buffering callback sts4.classpath.DemCRikG Pancake false 66
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:16.190
+!MESSAGE executing callback sts4.classpath.DemCRikG 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-27 21:23:17.456
+!MESSAGE executing callback sts4.classpath.DemCRikG SUCCESS [done]
