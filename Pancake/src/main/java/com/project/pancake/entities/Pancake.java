@@ -1,5 +1,33 @@
 package com.project.pancake.entities;
 
+import java.util.Set;
+
+import javax.persistence.*;
+
+@Entity
 public class Pancake {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @ManyToMany(mappedBy ="pancakes" )
+    private Set<Ingredient> ingredients;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 
 }

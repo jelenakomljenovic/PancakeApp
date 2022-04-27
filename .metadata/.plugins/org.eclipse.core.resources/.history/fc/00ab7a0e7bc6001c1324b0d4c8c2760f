@@ -1,0 +1,8 @@
+package com.project.pancake.entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Pancake {
+
+}

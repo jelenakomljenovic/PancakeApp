@@ -1,0 +1,7 @@
+package com.project.pancake.entities;
+
+
+@Entity
+public class Ingredient {
+
+}
