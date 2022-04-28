@@ -1,0 +1,47 @@
+package com.project.pancake.security;
+
+
+import org.springframework.context.annotation.Bean;
+
+@EnableWebSecurity
+public class Config extends WebSecurityConfigurerAdapter {
+
+    // Adding the roles
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("user")
+                .password("user")
+                .roles("user")
+                .and()
+                .withUser("employee")
+                .password("employee")
+                .roles("employee")
+                .and()
+                .withUser("admin")
+                .password("admin");
+    }
+
+    // Configuring the api
+    // according to the roles.
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.
+                httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/ingredients", "/ingredients/*").hasRole("employee")
+                .antMatchers("/orders", "/orders/*", "/icecreams", "/icecreams/*").hasRole("user")
+                .antMatchers("/report", "/report/*").hasRole("admin")
+
+                .and()
+                .formLogin();
+    }
+
+    // Function to encode the password
+    // assign to the particular roles.
+    @Bean
+    public PasswordEncoder getPasswordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
+}

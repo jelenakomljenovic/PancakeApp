@@ -1,0 +1,48 @@
+package com.project.pancake.services.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.pancake.repositories.IngredientRepository;
+import com.project.pancake.repositories.PancakeRepository;
+
+public class PancakeServiceImpl {
+	
+	 @Autowired
+	 private PancakeRepository pancakeRepository;
+
+	 @Autowired
+	 private IngredientRepository ingredientRepository;
+
+
+    @Override
+    public List<Pancake> findAll() {
+        return pancakeRepository.findAll();
+    }
+
+    @Override
+    public IceCream save(IceCream iceCream) {
+        int numHealthyIngredients = 0;
+        for(Ingredient ingredient: iceCream.getIngredients()){
+            if(ingredientRepository.findById(ingredient.getId()).get().isHealthy()){
+                numHealthyIngredients += 1;
+            }
+        }
+        double percentage = (double) numHealthyIngredients*100 /iceCream.getIngredients().size();
+        if(percentage >= 75){
+            
+        }
+        return iceCreamRepository.save(iceCream);
+    }
+
+    @Override
+    public IceCream update(IceCream iceCream) {
+        return iceCreamRepository.save(iceCream);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        iceCreamRepository.deleteById(id);
+
+    }
+
+}

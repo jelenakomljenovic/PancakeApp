@@ -20,6 +20,10 @@ public class Ingredient {
     @Enumerated
     private Category category;
 
+
+    @Column
+    private boolean healthy;
+
     @ManyToMany(mappedBy = "ingredients")
     private Set<Pancake> pancakes;
 
@@ -45,6 +49,30 @@ public class Ingredient {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public boolean isHealthy() {
+        return healthy;
+    }
+
+    public void setHealthy(boolean healthy) {
+        this.healthy = healthy;
+    }
+
+    public Set<Pancake> getPancakes() {
+        return pancakes;
+    }
+
+    public void setPancakes(Set<Pancake> pancakes) {
+        this.pancakes = pancakes;
     }
 
 }
