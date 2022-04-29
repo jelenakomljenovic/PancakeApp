@@ -1,5 +1,6 @@
 package com.project.pancake.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -11,8 +12,17 @@ public class Pancake {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToMany(mappedBy ="pancakes" )
-    private Set<Ingredient> ingredients;
+
+    @ManyToOne
+    private Orders order;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "pancake_ingredient",
+            joinColumns = @JoinColumn(name = "pancake_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     public long getId() {
         return id;
@@ -28,6 +38,14 @@ public class Pancake {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Orders getOrder() {
+        return order;
+    }
+
+    public void setOrder(Orders order) {
+        this.order = order;
     }
 
 }

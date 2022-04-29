@@ -3,23 +3,67 @@ package com.project.pancake.services.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.project.pancake.entities.Order;
+import com.project.pancake.dto.OrderDTO;
+import com.project.pancake.dto.PancakeDTO;
+import com.project.pancake.entities.Orders;
+import com.project.pancake.entities.Pancake;
+import com.project.pancake.repositories.IngredientRepository;
 import com.project.pancake.repositories.OrderRepository;
+import com.project.pancake.repositories.PancakeRepository;
 import com.project.pancake.services.OrderService;
 
+@Service
 public class OrderServiceImpl implements OrderService{
 	
 	@Autowired
+    private IngredientRepository ingredientRepository;
+
+    @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private PancakeRepository pancakeRepository;
+
     @Override
-    public Optional<Order> findById(long id) {
-        return orderRepository.findById(id);
+    public OrderDTO findById(long id) {
+        OrderDTO orderDTO = new OrderDTO();
+        double totalPrice = 0;
+        Orders order = orderRepository.findById(id).get();
+        for(Pancake pancake: order.getPancakes()){
+            double pancakePrice = pancakeRepository.pancakePrice(pancake.getId());
+            PancakeDTO pancakeDTO = new PancakeDTO();
+            pancakeDTO.setId(pancake.getId());
+            pancakeDTO.setPrice(pancakePrice);
+
+            orderDTO.getPancakes().add(pancakeDTO);
+            totalPrice += pancakePrice;
+        }
+        orderDTO.setTotalPrice(totalPrice);
+        return orderDTO;
+
     }
 
     @Override
-    public Order save(Order order) {
+    public Orders save(Orders order) {
+        /*
+        for(IceCream iceCream: order.getIceCreams()){
+            int numHealthyIngredients = 0;
+            double iceCreamPrice = 0;
+            for(Ingredient ingredient: iceCream.getIngredients())
+            if(ingredientRepository.findById(ingredient.getId()).get().isHealthy()){
+                numHealthyIngredients += 1;
+            }
+            double percentage = (double) numHealthyIngredients*100 /iceCream.getIngredients().size();
+            if(percentage >= 75){
+                iceCream.setPrice(iceCreamPrice*0.85);
+            }
+            else{
+                iceCream.setPrice(iceCreamPrice);
+            }
+        }
+        */
         return orderRepository.save(order);
     }
 

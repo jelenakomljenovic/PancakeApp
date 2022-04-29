@@ -3,6 +3,7 @@ package com.project.pancake.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.project.pancake.entities.Ingredient;
 import com.project.pancake.entities.Pancake;
@@ -10,13 +11,14 @@ import com.project.pancake.repositories.IngredientRepository;
 import com.project.pancake.repositories.PancakeRepository;
 import com.project.pancake.services.PancakeService;
 
+@Service
 public class PancakeServiceImpl implements PancakeService {
 	
-	 @Autowired
-	 private PancakeRepository pancakeRepository;
+	@Autowired
+    private PancakeRepository pancakeRepository;
 
-	 @Autowired
-	 private IngredientRepository ingredientRepository;
+    @Autowired
+    private IngredientRepository ingredientRepository;
 
 
     @Override
@@ -26,16 +28,6 @@ public class PancakeServiceImpl implements PancakeService {
 
     @Override
     public Pancake save(Pancake pancake) {
-        int numHealthyIngredients = 0;
-        for(Ingredient ingredient: pancake.getIngredients()){
-            if(ingredientRepository.findById(ingredient.getId()).get().isHealthy()){
-                numHealthyIngredients += 1;
-            }
-        }
-        double percentage = (double) numHealthyIngredients*100 /pancake.getIngredients().size();
-        if(percentage >= 75){
-            
-        }
         return pancakeRepository.save(pancake);
     }
 
@@ -48,6 +40,11 @@ public class PancakeServiceImpl implements PancakeService {
     public void deleteById(long id) {
         pancakeRepository.deleteById(id);
 
+    }
+
+    @Override
+    public double pancakePrice(long pancakeId) {
+        return pancakeRepository.pancakePrice(pancakeId);
     }
 
 }

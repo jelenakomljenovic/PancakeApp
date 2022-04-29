@@ -16,16 +16,16 @@ public class Config extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("user")
-                .roles("user")
+                .withUser("customer")
+                .password("osd")
+                .roles("customer")
                 .and()
                 .withUser("employee")
-                .password("employee")
+                .password("palacinke")
                 .roles("employee")
                 .and()
-                .withUser("admin")
-                .password("admin");
+                .withUser("owner")
+                .password("store");
     }
 
     // Configuring the api
@@ -37,8 +37,8 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/ingredients", "/ingredients/*").hasRole("employee")
-                .antMatchers("/orders", "/orders/*", "/icecreams", "/icecreams/*").hasRole("user")
-                .antMatchers("/report", "/report/*").hasRole("admin")
+                .antMatchers("/orders", "/orders/*", "/pancakes", "/pancakes/*").hasRole("customer")
+                .antMatchers("/report", "/report/*").hasRole("owner")
 
                 .and()
                 .formLogin();

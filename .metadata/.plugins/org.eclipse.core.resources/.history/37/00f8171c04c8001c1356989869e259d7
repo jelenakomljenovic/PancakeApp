@@ -1,0 +1,50 @@
+package com.project.pancake.services.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.icecream.entities.IceCream;
+import com.project.icecream.repositories.IceCreamRepository;
+import com.project.pancake.entities.Ingredient;
+import com.project.pancake.entities.Pancake;
+import com.project.pancake.repositories.IngredientRepository;
+import com.project.pancake.repositories.PancakeRepository;
+import com.project.pancake.services.PancakeService;
+
+public class PancakeServiceImpl implements PancakeService {
+	
+	@Autowired
+    private PancakeRepository pancakeRepository;
+
+    @Autowired
+    private IngredientRepository ingredientRepository;
+
+
+    @Override
+    public List<Pancake> findAll() {
+        return pancakeRepository.findAll();
+    }
+
+    @Override
+    public Pancake save(IceCream iceCream) {
+        return iceCreamRepository.save(iceCream);
+    }
+
+    @Override
+    public IceCream update(IceCream iceCream) {
+        return iceCreamRepository.save(iceCream);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        iceCreamRepository.deleteById(id);
+
+    }
+
+    @Override
+    public double iceCreamPrice(long iceCreamId) {
+        return iceCreamRepository.iceCreamPrice(iceCreamId);
+    }
+
+}

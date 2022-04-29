@@ -2,12 +2,14 @@ package com.project.pancake.services;
 
 import java.util.Optional;
 
-import com.project.pancake.entities.Order;
+import com.project.pancake.dto.OrderDTO;
+import com.project.pancake.entities.Orders;
+
 
 public interface OrderService {
 	
-	Optional<Order> findById(long id);
+	OrderDTO findById(long id);
 
-    Order save(Order order);
+    Orders save(Orders order);
 
 }

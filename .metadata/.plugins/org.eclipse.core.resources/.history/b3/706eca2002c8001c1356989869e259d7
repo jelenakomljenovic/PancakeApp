@@ -1,0 +1,51 @@
+package com.project.pancake.entities;
+
+@Entity
+public class Orders {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @OneToMany(mappedBy = "order")
+    private Set<IceCream> iceCreams = new HashSet<>();
+
+    private String description;
+
+
+    private LocalDateTime dateTime;
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Set<IceCream> getIceCreams() {
+        return iceCreams;
+    }
+
+    public void setIceCreams(Set<IceCream> iceCreams) {
+        this.iceCreams = iceCreams;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+}

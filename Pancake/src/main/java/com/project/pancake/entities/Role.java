@@ -1,5 +1,5 @@
 package com.project.pancake.entities;
 
 public enum Role {
-    USER, EMPLOYEE, ADMIN
+    CUSTOMER, EMPLOYEE, STORE_OWNER
 }

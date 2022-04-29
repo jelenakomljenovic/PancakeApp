@@ -1,0 +1,30 @@
+package com.project.pancake.services.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.project.icecream.entities.Ingredient;
+import com.project.icecream.repositories.IceCreamRepository;
+import com.project.icecream.repositories.IngredientRepository;
+import com.project.icecream.services.ReportService;
+
+@Service
+public class ReportServiceImpl implements ReportService {
+
+    @Autowired
+    private IceCreamRepository iceCreamRepository;
+
+    @Autowired
+    private IngredientRepository ingredientRepository;
+
+
+    @Override
+    public Ingredient getMostPopularIngredient() {
+        return null;
+    }
+
+    @Override
+    public Ingredient gestMostPopularHealthyIngredient() {
+        return null;
+    }
+}

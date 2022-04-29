@@ -10,5 +10,6 @@ public interface PancakeService {
     Pancake save(Pancake pancake);
     Pancake update(Pancake pancake);
     void deleteById(long id);
+    double pancakePrice(long pancakeId);
 
 }

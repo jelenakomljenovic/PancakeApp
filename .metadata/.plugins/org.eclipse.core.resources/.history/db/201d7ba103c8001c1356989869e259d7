@@ -1,0 +1,7 @@
+package com.project.pancake.services;
+
+
+
+public interface ReportService {
+	
+}
