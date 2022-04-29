@@ -1014,3 +1014,6 @@ java.net.URISyntaxException: Illegal character in path at index 36: file:/C:/Use
 2022-04-30 00:04:30,752 [Worker-42: Launching PancakeApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-04-30 00:04:30,753 [Worker-42: Launching PancakeApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Jelena\Desktop\Pancake\Pancake\src\test\resources
 2022-04-30 00:04:30,753 [Worker-42: Launching PancakeApplication] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of Pancake
+2022-04-30 00:04:30,753 [Worker-42: Launching PancakeApplication] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for Pancake
+2022-04-30 00:04:30,764 [Worker-42: Launching PancakeApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-04-30 00:04:30,764 [Worker-42: Launching PancakeApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
