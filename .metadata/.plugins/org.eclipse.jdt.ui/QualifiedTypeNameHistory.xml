@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="com.project.pancake.dto.OrderDTO"/>
+    <fullyQualifiedTypeName name="com.project.pancake.entities.Orders"/>
+    <fullyQualifiedTypeName name="com.project.pancake.dto.PancakeDTO"/>
+    <fullyQualifiedTypeName name="com.project.pancake.entities.Pancake"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.project.pancake.repositories.PancakeRepository"/>
+    <fullyQualifiedTypeName name="com.project.pancake.repositories.IngredientRepository"/>
+    <fullyQualifiedTypeName name="com.project.pancake.services.ReportService"/>
+    <fullyQualifiedTypeName name="com.project.pancake.entities.Ingredient"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,9 @@
+package com.project.pancake.services;
+
+public class OrderService {
+	
+	Optional<Order> findById(long id);
+
+    Order save(Order order);
+
+}

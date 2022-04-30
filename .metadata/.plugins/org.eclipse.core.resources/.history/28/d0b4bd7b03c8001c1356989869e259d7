@@ -1,0 +1,15 @@
+package com.project.pancake.services;
+
+import java.util.Optional;
+
+import com.project.icecream.dto.OrderDTO;
+import com.project.icecream.entities.Orders;
+import com.project.pancake.entities.Order;
+
+public interface OrderService {
+	
+	OrderDTO findById(long id);
+
+    Orders save(Orders order);
+
+}

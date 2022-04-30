@@ -1,0 +1,5 @@
+package com.project.icecream.entities;
+
+public enum Role {
+        USER, EMPLOYEE, ADMIN
+}

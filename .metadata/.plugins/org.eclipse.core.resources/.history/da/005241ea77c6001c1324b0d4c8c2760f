@@ -1,0 +1,5 @@
+package com.project.pancake.repositories;
+
+public class IngredientRepository extends JpaRepository<Ingredient, Long>{
+
+}

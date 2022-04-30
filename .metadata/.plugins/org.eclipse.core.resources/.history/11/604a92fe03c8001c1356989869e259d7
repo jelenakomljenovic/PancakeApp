@@ -1,0 +1,53 @@
+package com.project.pancake.services.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.pancake.entities.Ingredient;
+import com.project.pancake.entities.Pancake;
+import com.project.pancake.repositories.IngredientRepository;
+import com.project.pancake.repositories.PancakeRepository;
+import com.project.pancake.services.PancakeService;
+
+public class PancakeServiceImpl implements PancakeService {
+	
+	 @Autowired
+	 private PancakeRepository pancakeRepository;
+
+	 @Autowired
+	 private IngredientRepository ingredientRepository;
+
+
+    @Override
+    public List<Pancake> findAll() {
+        return pancakeRepository.findAll();
+    }
+
+    @Override
+    public Pancake save(Pancake pancake) {
+        int numHealthyIngredients = 0;
+        for(Ingredient ingredient: pancake.getIngredients()){
+            if(ingredientRepository.findById(ingredient.getId()).get().isHealthy()){
+                numHealthyIngredients += 1;
+            }
+        }
+        double percentage = (double) numHealthyIngredients*100 /pancake.getIngredients().size();
+        if(percentage >= 75){
+            
+        }
+        return pancakeRepository.save(pancake);
+    }
+
+    @Override
+    public Pancake update(Pancake pancake) {
+        return pancakeRepository.save(pancake);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        pancakeRepository.deleteById(id);
+
+    }
+
+}

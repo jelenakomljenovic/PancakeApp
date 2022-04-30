@@ -1,0 +1,7 @@
+package com.project.pancake.repositories;
+
+import com.project.pancake.entities.Order;
+
+public interface OrderRepository extends JpaRepository<Order, Long>{
+
+}

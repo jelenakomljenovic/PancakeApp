@@ -1,0 +1,38 @@
+package com.project.pancake.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.project.pancake.services.PancakeService;
+
+@RestController
+@RequestMapping("/pancakes")
+public class PancakeController {
+
+	 @Autowired
+	 private PancakeService pancakeService;
+	 
+	 @GetMapping
+	 public List<Pancake> getIceCreams(){
+		 return pancakeService.findAll();
+	 }
+
+	 @PostMapping
+	 public Pancake postPancake(@RequestBody Pancake pancake){
+		 return pancakeService.save(pancake);
+	 }
+
+	 @PutMapping("{id}")
+	 public IceCream putIceCream(@PathVariable long id, @RequestBody IceCream iceCream){
+		 iceCream.setId(id);
+		 return iceCreamService.save(iceCream);
+	 }
+
+	 @DeleteMapping("{id}")
+	 public ResponseEntity deleteIceCream(@PathVariable long id){
+		 iceCreamService.deleteById(id);
+		 return new ResponseEntity(HttpStatus.OK);
+	 }
+}

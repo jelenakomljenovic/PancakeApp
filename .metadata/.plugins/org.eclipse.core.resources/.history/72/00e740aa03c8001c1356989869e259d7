@@ -1,0 +1,9 @@
+package com.project.pancake.services;
+
+import com.project.icecream.entities.Ingredient;
+
+public interface ReportService {
+	Ingredient getMostPopularIngredient();
+    Ingredient gestMostPopularHealthyIngredient();
+	
+}
