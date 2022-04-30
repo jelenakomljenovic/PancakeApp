@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Ingredient {
 	@Id
@@ -25,6 +27,7 @@ public class Ingredient {
     private boolean healthy;
 
     @ManyToMany(mappedBy = "ingredients")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Pancake> pancakes;
 
     public long getId() {

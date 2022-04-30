@@ -22,11 +22,11 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public Ingredient getMostPopularIngredient() {
-        return null;
+    	return ingredientRepository.getMostPopularIngredient();
     }
 
     @Override
     public Ingredient gestMostPopularHealthyIngredient() {
-        return null;
+    	return ingredientRepository.getMostPopularHealthyIngredient();
     }
 }

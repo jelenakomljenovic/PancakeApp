@@ -1,6 +1,5 @@
 package com.project.pancake.security;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,24 +23,25 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .password("palacinke")
                 .roles("employee")
                 .and()
-                .withUser("owner")
-                .password("store");
+                .withUser("admin")
+                .password("store")
+                .roles("admin");
     }
 
     // Configuring the api
     // according to the roles.
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.
+        http.csrf().disable().
                 httpBasic()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/ingredients", "/ingredients/*").hasRole("employee")
                 .antMatchers("/orders", "/orders/*", "/pancakes", "/pancakes/*").hasRole("customer")
-                .antMatchers("/report", "/report/*").hasRole("owner")
+                .antMatchers("/report", "/report/*").hasRole("admin");
 
-                .and()
-                .formLogin();
+                //.and()
+                //.formLogin();
     }
 
     // Function to encode the password

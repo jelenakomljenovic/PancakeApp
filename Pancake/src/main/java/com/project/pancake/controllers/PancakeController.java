@@ -18,7 +18,7 @@ public class PancakeController {
 	 private PancakeService pancakeService;
 	 
 	 @GetMapping
-	 public List<Pancake> getIceCreams(){
+	 public List<Pancake> getPancakes(){
 		 return pancakeService.findAll();
 	 }
 

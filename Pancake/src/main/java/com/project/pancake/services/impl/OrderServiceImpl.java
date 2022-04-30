@@ -47,24 +47,15 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Orders save(Orders order) {
-        /*
-        for(IceCream iceCream: order.getIceCreams()){
-            int numHealthyIngredients = 0;
-            double iceCreamPrice = 0;
-            for(Ingredient ingredient: iceCream.getIngredients())
-            if(ingredientRepository.findById(ingredient.getId()).get().isHealthy()){
-                numHealthyIngredients += 1;
-            }
-            double percentage = (double) numHealthyIngredients*100 /iceCream.getIngredients().size();
-            if(percentage >= 75){
-                iceCream.setPrice(iceCreamPrice*0.85);
-            }
-            else{
-                iceCream.setPrice(iceCreamPrice);
-            }
+    	Orders savedOrder =  orderRepository.save(order);
+
+        for(Pancake pancake : order.getPancakes()){
+            Pancake pancake1 = pancakeRepository.getById(pancake.getId());
+            pancake1.setOrder(savedOrder);
+            pancakeRepository.save(pancake1);
         }
-        */
-        return orderRepository.save(order);
+        
+        return savedOrder;
     }
 
 }
