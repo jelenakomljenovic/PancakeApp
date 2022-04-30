@@ -23,9 +23,9 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .password("palacinke")
                 .roles("employee")
                 .and()
-                .withUser("admin")
+                .withUser("owner")
                 .password("store")
-                .roles("admin");
+                .roles("owner");
     }
 
     // Configuring the api
@@ -38,7 +38,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/ingredients", "/ingredients/*").hasRole("employee")
                 .antMatchers("/orders", "/orders/*", "/pancakes", "/pancakes/*").hasRole("customer")
-                .antMatchers("/report", "/report/*").hasRole("admin");
+                .antMatchers("/report", "/report/*").hasRole("owner");
 
                 //.and()
                 //.formLogin();
