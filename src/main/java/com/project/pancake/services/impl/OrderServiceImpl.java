@@ -40,6 +40,12 @@ public class OrderServiceImpl implements OrderService{
             orderDTO.getPancakes().add(pancakeDTO);
             totalPrice += pancakePrice;
         }
+        if(totalPrice >= 50){
+            totalPrice = totalPrice*0.90;
+        }
+        else if(totalPrice >= 20){
+            totalPrice = totalPrice*0.95;
+        }
         orderDTO.setTotalPrice(totalPrice);
         return orderDTO;
 
